@@ -34,7 +34,7 @@ module Sidekiq
 
       def self.load_yaml(src)
         if Psych::VERSION > "4.0"
-          YAML.safe_load(src, permitted_classes: [Symbol], aliases: true)
+          YAML.safe_load(src, permitted_classes: [Symbol, Time], aliases: true)
         else
           YAML.load(src)
         end
